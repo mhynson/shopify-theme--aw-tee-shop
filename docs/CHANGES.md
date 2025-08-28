@@ -31,5 +31,5 @@
 - Fix:
   - Added the following to line 120 inside the block
     `<link rel="preload" href="{{ block.settings.image | image_url: width: 3840 }}" as="image">`
-- Result (failed):
-  - This change actually negatively affected performance. It could be in the way that it was implemented (inside of a for-loop). Is there a way to pull out the images and put the preload statement higher up on the page?
+  - Result (failed):
+    - This change actually negatively affected performance. It could be in the way that it was implemented (inside of a for-loop). Is there a way to pull out the images and put the preload statement higher up on the page?
