@@ -19,9 +19,17 @@
 2. Lazy Load isn't needed on the hero image
 
 - Fix:
-  - remove the loading: lazy tag from the template (ds-slideshow.liquid)
+  - Remove the loading: lazy tag from the template (ds-slideshow.liquid)
 - Result:
   - Mobile Lighthouse
     - Performance changed from 80 -> 97
     - Best Practices changed from 79 -> 100
   - Desktop Lighthouse - unchanged
+
+3. Attempted: preload slideshow images
+
+- Fix:
+  - Added the following to line 120 inside the block
+    `<link rel="preload" href="{{ block.settings.image | image_url: width: 3840 }}" as="image">`
+- Result (failed):
+  - This change actually negatively affected performance. It could be in the way that it was implemented (inside of a for-loop). Is there a way to pull out the images and put the preload statement higher up on the page?
