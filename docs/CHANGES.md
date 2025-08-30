@@ -33,3 +33,11 @@
     `<link rel="preload" href="{{ block.settings.image | image_url: width: 3840 }}" as="image">`
   - Result (failed):
     - This change actually negatively affected performance. It could be in the way that it was implemented (inside of a for-loop). Is there a way to pull out the images and put the preload statement higher up on the page?
+
+4. Only lazy load all but the first image in the slideshow
+
+- Fix:
+  - Added a conditional variable assignment in the slideshow loop to set the loading attribute (ds_slideshow.liquid) 
+  - Result:
+    - The change wasn't monumental. It more or less leaves things unchanged
+

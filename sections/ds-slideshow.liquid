@@ -117,6 +117,10 @@
     data-speed="{{ section.settings.change_slides_speed }}"
   >
     {%- for block in section.blocks -%}
+      {% assign load_type = 'lazy' %}
+      {% if forloop.first %}
+        {% assign load_type = 'eager' %}
+      {% endif %}
       <style>
         #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
@@ -148,7 +152,8 @@
                 height: height,
                 sizes: '100vw',
                 class: main_image_class,
-                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                loading: load_type
             }}
             {% if block.settings.mobile_image != blank %}
               {% assign height = block.settings.mobile_image.width
@@ -162,7 +167,8 @@
                   height: height,
                   sizes: '100vw',
                   class: 'desktop-hidden',
-                  widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+                  widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840',
+                  loading: load_type
               }}
             {% endif %}
           {%- else -%}
