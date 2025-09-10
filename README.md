@@ -1,4 +1,4 @@
-# The Journey to an Optimized Shopify Theme
+# Shopify Theme Optimization Playground
 
 This repo is a playground for experimenting with Shopify theme optimization. I'm on a mission to look for impactful yet efficient changes that will improve the Lighthouse score. This will serve as both a test bed and documentation for making improvements for Shopify themes.
 
